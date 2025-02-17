@@ -11,21 +11,17 @@ public class SummaTest extends BaseTest{
 
     @Test(priority = 2, description = "this test check big with small numbers" )
     public void summBigNumbers() {
-        calculator.sum(12,22);
+        calculator.sum(122,128);
     }
 
-    @DataProvider(name = "numbers for summ")
-    public Object[][] numbersSumm() {
-        return new Object[][] {
-                {2, "smallChetnoe"},
-                {3, "smallNechetnoe"},
-                {18, "biggerChentnoe"},
-                {27, "biggerNechentoe"},
-        };
+    @DataProvider(name = "numbers")
+    public static Object[][] evenNumbers() {
+        return new Object[][]{{1, false}, {2, true}, {4, true}};
     }
 
-    @Test(dataProvider = "numbers for summ")
-    public void testSumm(int x, int y, int expected) {
-        Assert.assertEquals(calculator.sum(x, y), expected);
+    @Test(dataProvider = "numbers")
+    public void givenNumberFromDataProvider_ifEvenCheckOK_thenCorrect
+            (Integer number, boolean expected) {
+        Assert.assertEquals(expected, number % 2 == 0);
     }
 }

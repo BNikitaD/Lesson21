@@ -15,8 +15,13 @@ public class Calculator {
 
     public int divide(int e, int r) {
         System.out.println("divide");
-        return e/r;
+        if (r == 0) {
+            System.out.println("Message: division by zero");
+            return 0;
+        }
+        return e / r;
     }
+
 
     public int multiplicaion(int a, int b) {
         System.out.println("multiplication");
